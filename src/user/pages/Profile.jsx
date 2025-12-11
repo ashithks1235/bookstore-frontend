@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Header from '../components/Header'
 import Footer from '../../components/Footer'
 import { FaCircleCheck } from 'react-icons/fa6'
@@ -10,6 +10,16 @@ import BookStatus from '../components/BookStatus'
 function Profile() {
 
 const [tabNo,setTabNo] = useState(1)
+const [username,setUsername] = useState("")
+const [dp,setDp] = useState("")
+
+useEffect(()=>{
+  if(sessionStorage.getItem("token") && sessionStorage.getItem("user")){
+    const user = JSON.parse(sessionStorage.getItem("user"))
+    setUsername(user?.username)
+    setDp(user?.picture)
+  }
+},[])
 
   return (
     <>
