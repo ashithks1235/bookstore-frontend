@@ -24,6 +24,14 @@ const handleBookImageUpload = (e)=>{
   setPreviewList(demoPreviewList)
 }
 
+const handleResetForm = (e)=>{
+  setBookDetails({
+          title:"",author:"",page:"",imageURL:"",price:"",discountPrice:"",abstract:"",publisher:"",language:"",isbn:"",category:"",uploadIMG:[]
+  })
+  setPreview("")
+  setPreviewList([])
+}
+
   return (
     <div className='p-10 my-20 mx-5 bg-gray-200'>
       <h1 className="text-center text-3xl font-medium">Upload Book Details</h1>
@@ -90,7 +98,7 @@ const handleBookImageUpload = (e)=>{
         </div>
       </div>
       <div className="p-3 w-full flex md:justify-end justify-center mt-8">
-        <button className="py-2 px-3 rounded bg-gray-600 text-white hover:bg-white hover:text-gray-600">RESET</button>
+        <button onClick={handleResetForm} className="py-2 px-3 rounded bg-gray-600 text-white hover:bg-white hover:text-gray-600">RESET</button>
         <button className="py-2 px-3 rounded bg-white text-gray-600 hover:bg-gray-600 hover:text-white ms-3">ADD BOOK</button>
       </div>
     </div>
